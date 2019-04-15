@@ -1,0 +1,18 @@
+#List of words  you want censored (add more following the format if you want, making sure all entries are wrapped in '' ):
+#blacklist:
+#- 'word'
+#- 'anotherword'
+
+#List of words that should never be censored (such as words containing said defined censored word) should be in the same format under exempt.
+
+blacklist:
+  - 'fuck'
+  - 'fxck'
+  - 'bitch'
+  - 'biatch'
+  - 'nigga'
+  - 'nigger'
+  - 'cum'
+
+exempt:
+  - 'cucumber'

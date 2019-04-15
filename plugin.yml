@@ -1,0 +1,134 @@
+name: ChatAuthority
+version: 1.0.0
+main: com.github.marveldc.chatauthority.Main
+authors: [MarvelDC]
+description: Customise server Chat
+
+commands:
+  chatauthority:
+    description: Command for admin related features of Chat Authority
+    aliases: [ca, chat]
+  toggle:
+    description: Toggle blacklist
+    aliases: [tog]
+  message:
+    description: Private message a player
+    aliases: [msg, w, pm]
+  reply:
+    description: Reply to a private message
+    aliases: [r]
+  staffannounce:
+    description: Announce a message as staff
+    aliases: [sa, sb]
+  staffchat:
+    description: Broadcast to all players with related permission
+    aliases: [sc, s]
+  broadcast:
+    description: Broadcast a message to all players
+    aliases: [bc]
+  infractions:
+    description: Opens infractions GUI for player
+    aliases: [chatinfactions, cinf, cinfractions]
+
+permissions:
+  ca.*:
+    description: Gives all Chat Authority permissions
+    children:
+      ca.admin.*: true
+      ca.toggle.*: true
+      ca.blacklist: true
+      ca.bypass.*: true
+      ca.msg: true
+      ca.reply: true
+      ca.chat: true
+      ca.staffannounce: true
+      ca.staffchat: true
+      ca.broadcast: true
+      ca.infractions.*: true
+  ca.admin.*:
+    ca.admin.clear: true
+    ca.admin.mute: true
+    ca.admin.reload: true
+  ca.admin.clear:
+    description: Allows a player to clear chat
+    default: op
+  ca.admin.mute:
+    description: Allows a player to mute the chat
+    default: op
+  ca.admin.reload:
+    description: Allows a player to reload the configuration
+    default: op
+  ca.infractions.*:
+    ca.infractions.self: true
+    ca.ifractions.alert: true
+    ca.infractions.others: true
+    ca.infractions.reset: true
+  ca.infractions:
+    description: Allows a player to view own chat infractions
+    default: op
+  ca.infractions.reset:
+    description: Allows a player to reset infractions of a player
+    default: op
+  ca.infractions.alert:
+    description: Player receives all infraction alerts
+    default: op
+  ca.infractions.others:
+    description: Allows a player to view other player's chat infractions
+    default: op
+  ca.staffannounce:
+    description: Allows a player to use /staffannounce
+    default: op
+  ca.broadcast:
+    description: Allows a player to use /broadcast
+    default: op
+  ca.staffchat:
+    description: Allows a player to use /staffchat & toggle
+    default: op
+  ca.toggle.*:
+    description: Allows a player to use all toggle commands
+    children:
+      ca.toggle.blacklist: true
+      ca.toggle.mention: true
+  ca.toggle.blacklist:
+    description: Allows a player to toggle blacklist on or off
+    default: op
+  ca.toggle.mention:
+    description: Allows a player to toggle mention on or off
+    default: op
+  ca.bypass.*:
+    description: Allows a player to bypass all chat filters
+    children:
+      ca.bypass.blacklist: true
+      ca.bypass.spam: true
+      ca.bypass.similar: true
+      ca.bypass.capitals: true
+      ca.bypass.clear: true
+      ca.bypass.mute: true
+      ca.bypass.punctuation: true
+  ca.bypass.blacklist:
+    description: Allows a player to bypass blacklist filter
+    default: op
+  ca.bypass.spam:
+    description: Allows a player to bypass spam filter
+    default: op
+  ca.bypass.similar:
+    description: Allows a player to bypass similarity filter
+    default: op
+  ca.bypass.capitals:
+    description: Allows a player to bypass capitals filter
+    default: op
+  ca.bypass.clear:
+    description: Player chat is not cleared if chat is cleared
+    default: op
+  ca.bypass.mute:
+    description: Player can chat while chat is muted
+    default: op
+  ca.bypass.punctuation:
+    description: Player can chat without message being auto punctuated
+    default: op
+  ca.msg:
+    description: Allows a player to use /msg command
+    default: op
+  ca.reply:
+    description: Allows a player to use /reply command
+    default: op
